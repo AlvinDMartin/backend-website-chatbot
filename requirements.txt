@@ -4,7 +4,7 @@ simpleaudio==1.0.4
 numpydoc==1.1.0
 tflearn==0.5.0
 urllib3==1.25.11
-pywin32==227
+pywin32==2.2.7
 Cython==0.29.21
 tensorflow==2.4.1
 uvicorn==0.13.4
