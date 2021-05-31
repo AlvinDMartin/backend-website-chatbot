@@ -1,0 +1,112 @@
+{
+ "intents": [
+  {
+   "tag": "Lời chào",
+   "patterns": [
+    "Xin chào",
+    "Bạn khỏe không",
+    "Có ai ở đó không",
+    "Alo",
+    "Chúc một ngày tốt lành",
+    "Ai có thể giúp tôi"
+   ],
+   "responses": [
+    "Xin chào quý khách. Hãy cho tôi biết bạn cần trợ giúp gì nhé",
+    "Xin chào, tôi có thể giúp gì không",
+    "Xin chào. Tôi có thể giúp gì cho bạn",
+    "Xin chào. Tôi có thể hỗ trợ gì cho bạn"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Tạm biệt",
+   "patterns": [
+    "Cám ơn",
+    "Gặp bạn sau",
+    "tạm biệt",
+    "tôi rời khỏi đây",
+    "Chúc một ngày vui"
+   ],
+   "responses": [
+    "Hẹn gặp lại quý khách !",
+    "Hãy ghé thăm tôi nhé",
+    "xin chào tạm biệt"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Giới thiệu sản phẩm",
+   "patterns": [
+    "Bạn có thể giới thiệu cho mình được không",
+    "giới thiệu cho tôi biết về các mặt hàng được không",
+    "hôm nay các loại nào được giảm giá ạ",
+    "cho tôi biết các mẫu thiết kế mới đi nào",
+    "Loại mặt hàng nào bán chạy nhất"
+   ],
+   "responses": [
+    "Những mặt hàng này đang được giảm giá hôm nay",
+    "Đây là thiết kế mới nhất của chúng tôi",
+    "Đây là mặt hàng bán chạy nhất",
+    "Để tôi giới thiệu tới bạn một vài món đồ chúng tôi có"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Thông tin sản phẩm",
+   "patterns": [
+    "Tôi muốn mua áo",
+    "áo này giá bao nhiêu",
+    "Mua áo thì cần làm những gì",
+    "giá cả áo như thế nào ạ",
+    "giá bao nhiêu"
+   ],
+   "responses": [
+    "Bạn hãy lựa chọn hoặc tìm kiếm loại áo mà bạn thích, sau đó nhấn vào sản phẩm để được thêm vào giỏ hàng ạ",
+    "Bạn hãy lựa chọn hoặc tìm kiếm loại áo mà bạn thích, hãy thêm sản phẩm của bạn vào giỏ hàng, sau đó bạn chọn phương thức thanh toán nhé"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Tên",
+   "patterns": [
+    "Tên của bạn là gì",
+    "Tôi có thể gọi bạn là gì",
+    "Tên của bạn"
+   ],
+   "responses": [
+    "Tôi là nhân viên ảo của cửa hàng.",
+    "Tôi là BOT, tôi có thể giúp bạn",
+    "hãy gọi tôi là BOT"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Cửa hàng",
+   "patterns": [
+    "Mình có những mẫu nào",
+    "tôi xin danh sách sản phẩm tốt nhất",
+    "bạn có thể giới thiệu tôi một vài món",
+    "loại áo cặp có không ạ"
+   ],
+   "responses": [
+    "Tôi sẽ gửi cho bạn danh sách ngay bây giờ",
+    "đừng lo lắng, hãy chọn loại áo mà bạn thích"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Ý kiến khách hàng",
+   "patterns": [
+    "Tôi muốn đánh giá",
+    "Tôi có ý kiến về bạn",
+    "tôi đánh giá các sản phẩm",
+    "khảo sát sản phẩm"
+   ],
+   "responses": [
+    "Bạn có thể điền vào tờ ý kiến khách hàng này ạ? Sẽ chỉ mất 2 phút thôi",
+    "Rất vui khi được tiếp nhận ý kiến từ khách hàng ạ, Bạn có thể điền vào tờ ý kiến sau đây của mình nhé"
+   ],
+   "context_set": ""
+  }
+ ]
+}
