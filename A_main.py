@@ -7,11 +7,8 @@ import tensorflow as tf
 import random
 import json
 import pickle
-import time
 from time import strftime
-#from A_speedtext import speedtext
 from A_save_datamodel import savedata
-import argparse
 import os
 
 _sd = savedata()
