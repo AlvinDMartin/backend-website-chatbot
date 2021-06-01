@@ -1,6 +1,5 @@
 #In[1]
 from pymongo import MongoClient
-from pydantic import BaseModel
 from pydantic.tools import T
 
 client = MongoClient("mongodb+srv://dbUser:dbUser123@cluster0.nrpsz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
