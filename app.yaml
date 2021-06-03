@@ -1,3 +1,6 @@
 
 runtime: python
 entrypoint: uvicorn Final_main_API:app
+
+runtime_config:
+  python_version: 3
