@@ -14,10 +14,10 @@ start = datetime.utcnow()
 app = FastAPI(debug=True)
 
 # Database MongoDB
-from pymongo import MongoClient
-client = MongoClient("mongodb+srv://dbUser:dbUser123@cluster0.nrpsz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db=client.get_database('webshopping')
-records = db.message_chat_bot
+# from pymongo import MongoClient
+# client = MongoClient("mongodb+srv://dbUser:dbUser123@cluster0.nrpsz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+# db=client.get_database('webshopping')
+# records = db.message_chat_bot
 
 
 # Library
