@@ -32,7 +32,7 @@ class processing_dataset():
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
         print("Save new dataset thành công!")
 
-    def delete_dataset( self,val_tag,):
+    def delete_dataset( self,val_tag):
         self.val_tag = val_tag
         boot = False
         self.ktra_emplylist()

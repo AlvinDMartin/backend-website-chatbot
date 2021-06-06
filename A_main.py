@@ -93,15 +93,14 @@ class A_main():
         return np.array(bag)
 
     def chat(self, input_text):
-        print("Hãy bắt đầu nói chuyện với tôi- Tên tôi là BOT")
         while True:
 
             inp = input_text
 
-            if inp.lower() == "tạm biệt":
-                self.output_text = "Chúc quý khách một ngày tốt lành và hẹn gặp lại"
-                return self.output_text
-                break
+            # if inp.lower() == "tạm biệt":
+            #     self.output_text = "Chúc quý khách một ngày tốt lành và hẹn gặp lại"
+            #     return self.output_text
+            #     break
 
             results = self.model.predict([self.bag_of_words(inp, self.words)])[0]
             results_index = np.argmax(results)
@@ -118,15 +117,16 @@ class A_main():
                 return self.output_text
 
             else:
-                self.count_stop += 1
-                print(self.count_stop)
-                if self.count_stop == 1:
+                if len(inp.split()) <= 2:
+                    self.output_text = str("Tôi chưa hiểu, bạn hãy hỏi câu hỏi dài hơn một chút nhé!")
+                elif len(inp.split()) >= 15:
+                    self.output_text = str("Câu hỏi dài quá tôi không nhớ hết, bạn hãy hỏi từng câu nhé!")
+                else:    
                     self.save_new_questions(str(inp))
                     self.output_text = str("Có lẽ tôi chưa được học, bạn liên hệ nhân viên để được giải đáp ạ.")
-                    return self.output_text
-                else:
-                    self.output_text = str("Tôi chưa hiểu, bạn có thể lặp lại")
-                    return self.output_text
+                return self.output_text
+                # self.output_text = str("Tôi chưa hiểu, bạn có thể lặp lại")
+                # return self.output_text
 
     def hello(self, input_text=''):
         while True:

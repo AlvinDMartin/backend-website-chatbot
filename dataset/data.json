@@ -107,6 +107,20 @@
     "Rất vui khi được tiếp nhận ý kiến từ khách hàng ạ, Bạn có thể điền vào tờ ý kiến sau đây của mình nhé"
    ],
    "context_set": ""
+  },
+  {
+   "tag": "truyện tranh",
+   "patterns": [
+    "câu số 1",
+    "câu số 2",
+    "câu số 3"
+   ],
+   "responses": [
+    "câu này là câu số 1",
+    "câu này là câu số 2",
+    "câu này là câu số 3"
+   ],
+   "context_set": ""
   }
  ]
 }
