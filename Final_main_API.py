@@ -9,6 +9,7 @@ import os
 from typing import Optional
 
 _path = "Update_dataset/newquestions.json"
+_path_dataset = "dataset/data.json"
 
 #start = datetime.today()
 start = datetime.utcnow()
@@ -26,6 +27,8 @@ from A_main import A_main
 A_m = A_main()
 from B_main_save_new_dataset import B_save_new_data
 B_m = B_save_new_data()
+from B_save_new_dataset import processing_dataset
+savejson = processing_dataset()
 
 
 class A_Item(BaseModel):
@@ -36,6 +39,8 @@ class A_Item(BaseModel):
 class B_Item(BaseModel):
     tag: str
     responses: str
+class C_Item(BaseModel):
+    tag: str
 
 
 
@@ -99,5 +104,39 @@ async def newquestion_chat(item: B_Item, item_id:int):
         return B_m.run(quest,tag,res)
     else:
         return "Không có câu hỏi nào mới"
-    
-   
+
+@app.get("/update/chat-delete-newquestions/{item_id}")
+async def new_question_del(item_id: int):
+    with open(_path,'r',encoding='utf-8') as in_file:
+        data = json.load(in_file)
+    in_file.close()
+    count = len(data)
+    if item_id <= count-1:
+        B_m.delete(data[item_id])
+        return "Xóa thành công câu số " + str(item_id)
+    else:
+        return "Không có câu hỏi nào để xóa"
+
+@app.get("/dataset/get-all-dataset/")
+async def get_dataset():
+    with open(_path_dataset,'r',encoding='utf-8') as in_file:
+        _dataset = json.load(in_file)
+    in_file.close()
+    return _dataset
+
+@app.get("/dataset/get-tag-dataset/")
+async def get_dataset():
+    with open(_path_dataset,'r',encoding='utf-8') as in_file:
+        _dataset = json.load(in_file)
+    in_file.close()
+    save_tag = []
+    for element in _dataset['intents']:
+        save_tag.append(str(element["tag"]))
+    return save_tag
+
+@app.post("/dataset/delete-dataset/")
+async def dataset_del (item: C_Item):
+    with open(_path_dataset,'r',encoding='utf-8') as in_file:
+        _dataset = json.load(in_file)
+    in_file.close()
+    return savejson.delete_dataset(item.tag)

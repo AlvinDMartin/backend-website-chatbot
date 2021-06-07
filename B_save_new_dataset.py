@@ -9,7 +9,7 @@ class processing_dataset():
         if os.stat("dataset/data.json").st_size == 0:
             with open('dataset/data.json', 'w',encoding='utf-8') as out_file:
                 json.dump([], out_file, indent = 1,ensure_ascii=False)
-            print("Danh sách dataset đang trống !")
+            return "Danh sách dataset đang trống !"
 
     def new_dataset( self,val_tag, val_patt, val_res):
         self.val_tag = val_tag
@@ -49,7 +49,7 @@ class processing_dataset():
         with open('dataset/data.json', 'w',encoding='utf-8') as out_file:
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
         if boot == True:
-            print("Delete thành công")
+            return "Delete thành công"
             
     def update_dataset(self, val_tag,  val_patt, val_res):
         self.val_tag = val_tag
