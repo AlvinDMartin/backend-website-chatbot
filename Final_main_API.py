@@ -29,6 +29,8 @@ from B_main_save_new_dataset import B_save_new_data
 B_m = B_save_new_data()
 from B_save_new_dataset import processing_dataset
 savejson = processing_dataset()
+from C_Zalo_tts import tts
+C_m = tts()
 
 
 class A_Item(BaseModel):
@@ -39,8 +41,10 @@ class A_Item(BaseModel):
 class B_Item(BaseModel):
     tag: str
     responses: str
-class C_Item(BaseModel):
+class B_Item_2(BaseModel):
     tag: str
+class C_Item(BaseModel):
+    text: str
 
 
 
@@ -135,8 +139,15 @@ async def get_dataset():
     return save_tag
 
 @app.post("/dataset/delete-dataset/")
-async def dataset_del (item: C_Item):
+async def dataset_del (item: B_Item_2):
     with open(_path_dataset,'r',encoding='utf-8') as in_file:
         _dataset = json.load(in_file)
     in_file.close()
     return savejson.delete_dataset(item.tag)
+
+@app.post("/texttospeech/soundAPI/")
+async def soundAPI (item: C_Item):
+    if item.text == "":
+        return "Error: Text chưa được truyền vào"
+    else:
+        return C_m.Create_API(item.text)
