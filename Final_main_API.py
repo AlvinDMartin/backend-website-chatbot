@@ -18,8 +18,9 @@ start = datetime.utcnow()
 app = FastAPI(debug=True)
 
 origins = [
-    "https://chopper-shop-1.herokuapp.com"
+    "https://chopper-shop-1.herokuapp.com",
     "http://localhost:3000",
+    "http://localhost:5000",
 ]
 
 app.add_middleware(
@@ -66,7 +67,7 @@ class C_Item(BaseModel):
 #------------------------- API -------------------------
 
 @app.get("/")
-async def home(item: A_Item):
+async def home():
     return "Hãy bắt đầu gọi API"
 
 @app.get("/time")
