@@ -7,6 +7,7 @@ from datetime import datetime
 import json
 import os
 from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
 
 _path = "Update_dataset/newquestions.json"
 _path_dataset = "dataset/data.json"
@@ -15,6 +16,20 @@ _path_dataset = "dataset/data.json"
 start = datetime.utcnow()
 
 app = FastAPI(debug=True)
+
+origins = [
+    "https://chopper-shop-1.herokuapp.com"
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 from pymongo import MongoClient
 client = MongoClient("mongodb+srv://dbUser:dbUser123@cluster0.nrpsz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
