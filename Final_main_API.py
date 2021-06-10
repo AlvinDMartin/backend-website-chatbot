@@ -17,11 +17,12 @@ start = datetime.utcnow()
 
 app = FastAPI(debug=True)
 
-origins = [
-    "https://chopper-shop-1.herokuapp.com",
-    "http://localhost:3000",
-    "http://localhost:5000",
-]
+# origins = [
+#     "https://chopper-shop-1.herokuapp.com",
+#     "http://localhost:3000",
+#     "http://localhost:5000",
+# ]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
