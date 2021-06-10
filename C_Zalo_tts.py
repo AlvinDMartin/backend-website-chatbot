@@ -8,7 +8,7 @@ class tts():
         #text = "Xin chào tất cả anh em đã đến với động bàn tơ của tôi"
 
         h = {
-        "apikey":"UzOuOjakq8jCc9ZmrqbcJUBEhapLqm8F",
+        "apikey":"DPACevwjw4i5BmOPIrvwK4dpGQ7b0IHX",
         }
         params = {
             'input':text
