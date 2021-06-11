@@ -7,6 +7,4 @@ if __name__ == '__main__':
      host='10.170.0.2',
      port=4200, 
      reload=True,
-     ssl_keyfile="./key.pem",
-     ssl_certfile="./cert.pem"
      )
