@@ -5,9 +5,9 @@ from pydantic import BaseModel
 from pydantic.tools import T
 from datetime import datetime
 import json
-import os
+# import os
 from typing import Optional
-from fastapi.middleware.cors import CORSMiddleware
+# from fastapi.middleware.cors import CORSMiddleware
 
 _path = "Update_dataset/newquestions.json"
 _path_dataset = "dataset/data.json"
@@ -17,19 +17,19 @@ start = datetime.utcnow()
 
 app = FastAPI(debug=True)
 
-origins = [
-    "https://chopper-shop-1.herokuapp.com",
-    "http://localhost:3000",
-    "http://localhost:5000",
-]
+# origins = [
+#     "https://chopper-shop-1.herokuapp.com",
+#     "http://localhost:3000",
+#     "http://localhost:5000",
+# ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 
 # from pymongo import MongoClient
@@ -90,7 +90,7 @@ async def run_chat(item: A_Item):
 @app.get("/chatbot/chat-training")
 async def training_chat():
     A_m.Action(True, True)
-    return "training thanh cong"
+    return "training dữ liệu mới thành công"
 
 @app.get("/update/chat-getlistquestions")
 async def list_questions():
