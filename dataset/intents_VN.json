@@ -1,7 +1,8 @@
 {"intents": [
-        {"tag": "Lời chào",
-         "patterns": ["Xin chào", "Bạn khỏe không", "Có ai ở đó không", "Alo", "Chúc một ngày tốt lành", "Ai có thể giúp tôi"],
-         "responses": ["Xin chào quý khách. Hãy cho tôi biết bạn cần trợ giúp gì nhé", "Xin chào, tôi có thể giúp gì không", "Xin chào. Tôi có thể giúp gì cho bạn", "Xin chào. Tôi có thể hỗ trợ gì cho bạn"],
+        {"tag": "Lời Chào",
+         "patterns": ["Xin chào", "Bạn khỏe không", "Có ai ở đó không", "Alo", "Chúc một ngày tốt lành", "Ai có thể giúp tôi", "Tôi cần giúp đỡ"],
+         "responses": ["Xin chào quý khách. Hãy hỏi, <Tôi cần bạn hỗ trợ>, để biết thêm thông tin về tôi nhé", 
+                "Xin chào. Mình có thể hỗ trợ gì cho bạn không? Hãy hỏi <Hướng dẫn sử dụng>."], 
          "context_set": ""
         },
         {"tag": "Tạm biệt",
@@ -9,35 +10,55 @@
          "responses": ["Hẹn gặp lại quý khách !", "Hãy ghé thăm tôi nhé", "xin chào tạm biệt"],
          "context_set": ""
         },
-        {"tag": "Giới thiệu sản phẩm",
-         "patterns": ["Bạn có thể giới thiệu cho mình được không", "giới thiệu cho tôi biết về các mặt hàng được không", "hôm nay các loại nào được giảm giá ạ", "cho tôi biết các mẫu thiết kế mới đi nào", "Loại mặt hàng nào bán chạy nhất"],
-         "responses": ["Những mặt hàng này đang được giảm giá hôm nay", "Đây là thiết kế mới nhất của chúng tôi", "Đây là mặt hàng bán chạy nhất","Để tôi giới thiệu tới bạn một vài món đồ chúng tôi có"],
-         "context_set": ""
-        },
-        {"tag": "Thông tin sản phẩm",
-         "patterns": ["Tôi muốn mua áo", "áo này giá bao nhiêu", "Mua áo thì cần làm những gì", "giá cả áo như thế nào ạ", "giá bao nhiêu"],
-         "responses": ["Bạn đang tìm đồ cho bé trai hay bé gái, đàn ông hay phụ nữ ạ", "Bạn muốn tìm áo có màu sắc nào. Bạn muốn tìm kích cỡ nào"],
-         "context_set": ""
-        },
         {"tag": "Tên",
-         "patterns": ["Tên của bạn là gì", "Tôi có thể gọi bạn là gì", "Tên của bạn"],
-         "responses": ["Tôi là nhân viên ảo của cửa hàng.", "Tôi là BOT, tôi có thể giúp bạn", "hãy gọi tôi là BOT"],
+         "patterns": ["Tên của bạn là gì", "Tôi có thể gọi bạn là gì"],
+         "responses": ["Tôi là nhân viên bán hàng ảo, tôi giúp bạn nhé.", "Tôi là nhân viên ảo, tôi có thể giúp bạn không?"],
          "context_set": ""
         },
         {"tag": "Cửa hàng",
-         "patterns": ["Mình có những mẫu nào", "tôi xin danh sách sản phẩm tốt nhất", "bạn có thể giới thiệu tôi một vài món", "loại áo cặp có không ạ"],
-         "responses": ["Tôi sẽ gửi cho bạn danh sách ngay bây giờ", "đừng lo lắng, hãy chọn loại áo mà bạn thích"],
+         "patterns": ["Cửa hàng mình địa chỉ ở đâu", "tôi muốn đến tận hơi mua hàng", "Địa chỉ cửa hàng", "Bạn đang ở đâu"],
+         "responses": ["Cửa hành mình đang ở địa chỉ số 29/2/19 Lê Đức Thọ, Phường 7, Gò Vấp"],
          "context_set": ""
         },
         {"tag": "Ý kiến khách hàng",
-         "patterns": ["Tôi muốn đánh giá", "Tôi có ý kiến về bạn", "tôi đánh giá các sản phẩm", "khảo sát sản phẩm"],
-         "responses": ["Bạn có thể điền vào tờ ý kiến khách hàng này ạ? Sẽ chỉ mất 2 phút thôi","Rất vui khi được tiếp nhận ý kiến từ khách hàng ạ, Bạn có thể điền vào tờ ý kiến sau đây của mình nhé"],
+         "patterns": ["Tôi muốn đánh giá", "Tôi có ý kiến về bạn", "ý kiến khách hàng"],
+         "responses": ["Bạn có thể điền vào tờ ý kiến khách hàng này ạ. Chỉ mất 2 phút thôi. https://docs.google.com/forms/d/1AwwqmHLFqH5CCEfA8ft_6RV6Fy7oKUn-B8OdmFZMUsw/edit?usp=sharing"],
          "context_set": ""
         },
-        {"tag": "Thông tin sản phẩm 1",
-        "patterns": ["Phụ nữ"],
-        "responses": ["Nếu là phụ nữ, thì bạn có thể vào xem váy ạ"],
-        "context_set": ""
+        {"tag": "Hướng Dẫn",
+         "patterns": ["Hướng dẫn sử dụng","Bạn giúp được gì", "Bạn làm được gì", "Tôi cần bạn hướng dẫn", "Những gì bạn làm được", "trình bày những gì bạn làm được"],
+         "responses": ["Tôi có thể hỗ trợ. <tư vấn giá sản phẩm>. <tư vấn mua hàng>. <giới thiệu sản phẩm>. <các loại size>. <thanh toán hóa đơn>"],
+         "context_set": ""
+        },
+        {"tag": "Tư vấn giá sản phẩm",
+         "patterns": ["Tư vấn giá sản phẩm", "Mở cho tôi trang tổng giá sản phẩm"],
+         "responses": ["Mình đã mở trang, nếu không được mở, bấm vào đây. Sau đó chọn mức giá phù hợp với nhu cầu của mình nhé. https://chopper-shop-1.herokuapp.com/search/name"],
+         "context_set": ""
+        },
+        {"tag": "Giới thiệu sản phẩm",
+         "patterns": ["giới thiệu sản phẩm", "Mở cho tôi các loại sản phẩm", "Làm sao để xem sản phẩm", "Hiển thị tất cả sản phẩm", "Tất cả thông tin sản phẩm"],
+         "responses": ["Mình đã mở trang, nếu không được mở, bấm vào đây.Sau đó chọn mức mục sản phẩm mà bạn cần nhé. https://chopper-shop-1.herokuapp.com/search/name"],
+         "context_set": ""
+        },
+        {"tag": "Thanh toán hóa đơn",
+         "patterns": ["Tôi muốn thanh toán hóa đơn", "Mở cho tôi trang thanh toán", "Làm sao để mua hàng", "Mở cho tôi giỏ hàng", "thanh toán", "giỏ hàng"],
+         "responses": ["Mình đã mở trang giỏ hàng, nếu không được mở, bấm vào đây. Để thanh toán, quý khách phải thêm sản phẩm vào giỏ hàng, sau đó chọn Proceed to Checkout để thanh toán nhé. https://chopper-shop-1.herokuapp.com/cart"],
+         "context_set": ""
+        },
+        {"tag": "Mở trang mua đầm",
+         "patterns": ["Tôi muốn mua đầm", "có đầm cho nữ không ạ", "tôi mua đầm cho nữ"],
+         "responses": ["Mình đã mở trang sản phẩm đầm, váy cho nữ, nếu không được mở, bấm vào đây. https://chopper-shop-1.herokuapp.com/search/category/Dress/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"],
+         "context_set": ""
+        },
+        {"tag": "Mở trang mua nguyên bộ",
+         "patterns": ["Tôi muốn nguyên bộ", "tôi muốn theo set đồ", "Phối cho tôi bộ đồ", "Phối đồ theo phong cách"],
+         "responses": ["Mình đã mở trang sản phẩm các bộ đồ theo phong cách. nếu không được mở, bấm vào đây. https://chopper-shop-1.herokuapp.com/search/category/Set/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"],
+         "context_set": ""
+        },
+        {"tag": "Mở trang mua chân váy",
+         "patterns": ["Tôi muốn mua chân váy", "có váy nữ không ạ", "các loại chân váy"],
+         "responses": ["Mình đã mở trang sản phẩm chân váy cho nữ, nếu không được mở, bấm vào đây. https://chopper-shop-1.herokuapp.com/search/category/Skirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"],
+         "context_set": ""
         }
    ]
 }

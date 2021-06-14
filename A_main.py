@@ -9,9 +9,11 @@ import json
 import pickle
 from time import strftime
 from A_save_datamodel import savedata
+from Open_Webbrowser import open_webbrowser
 import os
 
 _sd = savedata()
+open_web = open_webbrowser()
 stemmer = LancasterStemmer()
 
 class A_main():
@@ -22,7 +24,7 @@ class A_main():
         self.bool_models = bool_models
         self.count_stop = 0
 
-        with open("dataset/data.json",  encoding="utf8") as file:
+        with open("dataset/intents_VN.json",  encoding="utf8") as file:
             data = json.load(file)
 
         rundata = bool_data
@@ -114,7 +116,31 @@ class A_main():
                         responses = tg['responses']
 
                 self.output_text = str(random.choice(responses))
-                return self.output_text
+
+                #openweb
+                if tag == "Ý kiến khách hàng":
+                    open_web.run_web("https://docs.google.com/forms/d/1AwwqmHLFqH5CCEfA8ft_6RV6Fy7oKUn-B8OdmFZMUsw/edit?usp=sharing")
+                    return self.output_text
+                elif tag == "Tư vấn giá sản phẩm":
+                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/name")
+                    return self.output_text
+                elif tag =="Giới thiệu sản phẩm":
+                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/name")
+                    return self.output_text
+                elif tag =="Thanh toán hóa đơn":
+                    open_web.run_web("https://chopper-shop-1.herokuapp.com/cart")
+                    return self.output_text
+                elif tag =="Mở trang mua đầm":
+                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Dress/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
+                    return self.output_text
+                elif tag =="Mở trang mua nguyên bộ":
+                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Set/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
+                    return self.output_text
+                elif tag =="Mở trang mua chân váy":
+                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Skirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
+                    return self.output_text
+                else:
+                    return self.output_text
 
             else:
                 if len(inp.split()) <= 2:

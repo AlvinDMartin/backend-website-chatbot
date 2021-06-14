@@ -13,7 +13,7 @@ _path = "Update_dataset/newquestions.json"
 _path_dataset = "dataset/data.json"
 
 #start = datetime.today()
-start = datetime.utcnow()
+
 
 app = FastAPI(debug=True)
 
@@ -71,9 +71,10 @@ async def home():
     return "Hãy bắt đầu gọi API"
 
 @app.get("/time")
-async def get_time(start_date: datetime = start):
-    print(start_date)
-    return {"start_date": start_date}
+async def get_time():
+    start = datetime.utcnow()
+    print(start)
+    return {"start_date": start}
 
 
 @app.post("/chatbot/chat-run")
