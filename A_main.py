@@ -22,7 +22,6 @@ class A_main():
     
         self.bool_data = bool_data
         self.bool_models = bool_models
-        self.count_stop = 0
 
         with open("dataset/intents_VN.json",  encoding="utf8") as file:
             data = json.load(file)
@@ -112,7 +111,6 @@ class A_main():
                 
                 for tg in self.data["intents"]:
                     if tg['tag'] == tag:
-                        self.count_stop = 0
                         responses = tg['responses']
 
                 self.output_text = str(random.choice(responses))
