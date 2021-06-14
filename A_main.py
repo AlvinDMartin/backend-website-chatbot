@@ -116,29 +116,30 @@ class A_main():
                 self.output_text = str(random.choice(responses))
 
                 #openweb
-                if tag == "Ý kiến khách hàng":
-                    open_web.run_web("https://docs.google.com/forms/d/1AwwqmHLFqH5CCEfA8ft_6RV6Fy7oKUn-B8OdmFZMUsw/edit?usp=sharing")
-                    return self.output_text
-                elif tag == "Tư vấn giá sản phẩm":
-                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/name")
-                    return self.output_text
-                elif tag =="Giới thiệu sản phẩm":
-                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/name")
-                    return self.output_text
-                elif tag =="Thanh toán hóa đơn":
-                    open_web.run_web("https://chopper-shop-1.herokuapp.com/cart")
-                    return self.output_text
-                elif tag =="Mở trang mua đầm":
-                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Dress/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
-                    return self.output_text
-                elif tag =="Mở trang mua nguyên bộ":
-                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Set/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
-                    return self.output_text
-                elif tag =="Mở trang mua chân váy":
-                    open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Skirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
-                    return self.output_text
-                else:
-                    return self.output_text
+                # if tag == "Ý kiến khách hàng":
+                #     open_web.run_web("https://docs.google.com/forms/d/1AwwqmHLFqH5CCEfA8ft_6RV6Fy7oKUn-B8OdmFZMUsw/edit?usp=sharing")
+                #     return self.output_text
+                # elif tag == "Tư vấn giá sản phẩm":
+                #     open_web.run_web("https://chopper-shop-1.herokuapp.com/search/name")
+                #     return self.output_text
+                # elif tag =="Giới thiệu sản phẩm":
+                #     open_web.run_web("https://chopper-shop-1.herokuapp.com/search/name")
+                #     return self.output_text
+                # elif tag =="Thanh toán hóa đơn":
+                #     open_web.run_web("https://chopper-shop-1.herokuapp.com/cart")
+                #     return self.output_text
+                # elif tag =="Mở trang mua đầm":
+                #     open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Dress/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
+                #     return self.output_text
+                # elif tag =="Mở trang mua nguyên bộ":
+                #     open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Set/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
+                #     return self.output_text
+                # elif tag =="Mở trang mua chân váy":
+                #     open_web.run_web("https://chopper-shop-1.herokuapp.com/search/category/Skirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1")
+                #     return self.output_text
+                # else:
+                #     return self.output_text
+                return self.output_text
 
             else:
                 if len(inp.split()) <= 2:
