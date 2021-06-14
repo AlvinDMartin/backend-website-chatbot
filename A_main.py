@@ -25,6 +25,7 @@ class A_main():
 
         with open("dataset/intents_VN.json",  encoding="utf8") as file:
             data = json.load(file)
+        file.close()
 
         rundata = bool_data
         runmodel = bool_models
@@ -35,6 +36,7 @@ class A_main():
 
         with open("datamodel/data.pickle", "rb") as f:
             words, labels, training, output = pickle.load(f)
+        f.close()
 
         tf.compat.v1.reset_default_graph()
         net = tflearn.input_data(shape=[None, len(training[0])]) #input layer
@@ -62,11 +64,13 @@ class A_main():
         if os.stat('Update_dataset/newquestions.json').st_size == 0:
             with open('Update_dataset/newquestions.json', 'w',encoding='utf-8') as out_file:
                 json.dump([], out_file, indent = 1,ensure_ascii=False)
+            out_file.close()
             print("Danh sách question đang trống!, đã được tạo mới")
 
 
         with open('Update_dataset/newquestions.json','r',encoding='utf-8') as in_file:
             data = json.load(in_file)
+        in_file.close()
 
         for i in range(len(data)):
             if data[i] == str(val_patt):
@@ -80,6 +84,7 @@ class A_main():
 
         with open('Update_dataset/newquestions.json', 'w',encoding='utf-8') as out_file:
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
+        out_file.close()
 
     def bag_of_words(self,s, words):
         bag = [0 for _ in range(len(words))]
