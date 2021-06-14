@@ -5,14 +5,12 @@ from pydantic import BaseModel
 from pydantic.tools import T
 from datetime import datetime
 import json
-# import os
+import os
 from typing import Optional
 # from fastapi.middleware.cors import CORSMiddleware
 
 _path = "Update_dataset/newquestions.json"
 _path_dataset = "dataset/intents_VN.json"
-
-#start = datetime.today()
 
 
 app = FastAPI(debug=True)
