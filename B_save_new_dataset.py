@@ -2,13 +2,15 @@
 #In[1]
 import json
 import os
+_path = "dataset/intents_VN.json"
 
 class processing_dataset():
 
     def ktra_emplylist(self):
-        if os.stat("dataset/data.json").st_size == 0:
-            with open('dataset/data.json', 'w',encoding='utf-8') as out_file:
+        if os.stat(_path).st_size == 0:
+            with open(_path, 'w',encoding='utf-8') as out_file:
                 json.dump([], out_file, indent = 1,ensure_ascii=False)
+            out_file.close()
             return "Danh sách dataset đang trống !"
 
     def new_dataset( self,val_tag, val_patt, val_res):
@@ -18,7 +20,7 @@ class processing_dataset():
 
         self.ktra_emplylist()
 
-        with open('dataset/data.json','r',encoding='utf-8') as in_file:
+        with open(_path,'r',encoding='utf-8') as in_file:
             data = json.load(in_file)
             data['intents'].append({
                 'tag': str(val_tag),
@@ -26,10 +28,11 @@ class processing_dataset():
                 'responses':[str(val_res)],
                 'context_set':''
             })
-            in_file.close()
+        in_file.close()
 
-        with open('dataset/data.json', 'w',encoding='utf-8') as out_file:
+        with open(_path, 'w',encoding='utf-8') as out_file:
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
+        out_file.close()
         print("Save new dataset thành công!")
 
     def delete_dataset( self,val_tag):
@@ -37,17 +40,18 @@ class processing_dataset():
         boot = False
         self.ktra_emplylist()
 
-        with open('dataset/data.json','r',encoding='utf-8') as in_file:
+        with open(_path,'r',encoding='utf-8') as in_file:
             data = json.load(in_file)
             for element in data['intents']:
                 if element["tag"] == val_tag:
                     data['intents'].remove(element)
                     boot = True
 
-            in_file.close()
+        in_file.close()
 
-        with open('dataset/data.json', 'w',encoding='utf-8') as out_file:
+        with open(_path, 'w',encoding='utf-8') as out_file:
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
+        out_file.close()
         if boot == True:
             return "Delete thành công"
             
@@ -58,7 +62,7 @@ class processing_dataset():
         boot = False
         self.ktra_emplylist()
 
-        with open('dataset/data.json','r',encoding='utf-8') as in_file:
+        with open(_path,'r',encoding='utf-8') as in_file:
             data = json.load(in_file)
             for element in data['intents']:
                 if element["tag"] == val_tag:
@@ -66,9 +70,10 @@ class processing_dataset():
                     element["responses"].append(str(val_res))
                     boot = True
 
-            in_file.close()
-        with open('dataset/data.json', 'w',encoding='utf-8') as out_file:
+        in_file.close()
+        with open(_path, 'w',encoding='utf-8') as out_file:
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
+        out_file.close()
         if boot == True:
             print("Update thành công")
 
@@ -76,13 +81,13 @@ class processing_dataset():
         self.val_tag = val_tag
         boot = False
         self.ktra_emplylist()
-        with open('dataset/data.json','r',encoding='utf-8') as in_file:
+        with open(_path,'r',encoding='utf-8') as in_file:
             data = json.load(in_file)
             for element in data['intents']:
                 if element["tag"] == val_tag:
                     boot = True
 
-            in_file.close()
+        in_file.close()
         return boot
 
 
