@@ -66,16 +66,25 @@ class processing_dataset():
             data = json.load(in_file)
             for element in data['intents']:
                 if element["tag"] == val_tag:
-                    element["patterns"].append(str(val_patt))
-                    element["responses"].append(str(val_res))
-                    boot = True
+                    if str(val_patt) != '' and str(val_res) != '':
+                        element["patterns"].append(str(val_patt))
+                        element["responses"].append(str(val_res))
+                        boot = True
+                    elif str(val_patt) != '':
+                        element["patterns"].append(str(val_patt))
+                        boot = True
+                    elif str(val_res) != '':
+                        element["responses"].append(str(val_res))
+                        boot = True
 
         in_file.close()
         with open(_path, 'w',encoding='utf-8') as out_file:
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
         out_file.close()
         if boot == True:
-            print("Update thành công")
+            return "Update thành công"
+        else:
+            return "Có thể Tag đã sai, bạn không thể thay đổi tag, không được update"
 
     def search_tag(self, val_tag):
         self.val_tag = val_tag

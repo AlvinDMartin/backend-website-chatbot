@@ -7,6 +7,8 @@ from datetime import datetime
 import json
 import os
 from typing import Optional
+
+from starlette.responses import Response
 # from fastapi.middleware.cors import CORSMiddleware
 
 _path = "Update_dataset/newquestions.json"
@@ -57,6 +59,10 @@ class B_Item(BaseModel):
     responses: str
 class B_Item_2(BaseModel):
     tag: str
+class B_Item_3(BaseModel):
+    tag: str
+    patterns : str
+    responses : str
 class C_Item(BaseModel):
     text: str
 
@@ -153,11 +159,15 @@ async def get_dataset():
         save_tag.append(str(element["tag"]))
     return save_tag
 
+@app.post("/dataset/edit-dataset/")
+async def edit_dataset(item: B_Item_3):
+    tag = item.tag
+    quest = item.patterns
+    res = item.responses
+    return savejson.update_dataset(tag, quest, res)
+
 @app.post("/dataset/delete-dataset/")
 async def dataset_del (item: B_Item_2):
-    with open(_path_dataset,'r',encoding='utf-8') as in_file:
-        _dataset = json.load(in_file)
-    in_file.close()
     return savejson.delete_dataset(item.tag)
 
 @app.post("/texttospeech/soundAPI/")
