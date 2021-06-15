@@ -178,16 +178,19 @@
    "context_set": ""
   },
   {
-   "tag": "Mở trang test",
-   "patterns": [
-    "Tôi muốn mua chân váy",
-    "có váy nữ không ạ",
-    "các loại chân váy"
-   ],
-   "responses": [
-    "Hãy bấm vào liên kết. Các sản phẩm chân váy cho nữ sẽ hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Skirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
-   ],
-   "context_set": ""
-  }
+       "tag": "Mở trang mua quần",
+       "patterns": [
+        "Tôi muốn mua quần",
+        "có bán quần không",
+        "có bao nhiêu loại quần",
+        "Có quần jogger không",
+        "Có quần Jean không",
+        "Có quần đùi không"
+       ],
+       "responses": [
+        "Hãy bấm vào liên kết. Các sản phẩm quần sẽ hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Pants/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+       ],
+       "context_set": ""
+      }
  ]
 }
