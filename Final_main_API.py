@@ -159,6 +159,26 @@ async def get_dataset():
         save_tag.append(str(element["tag"]))
     return save_tag
 
+@app.get("/dataset/get-tag-dataset/{item_id}")
+async def get_one_dataset(item_id: int):
+    with open(_path_dataset,'r',encoding='utf-8') as in_file:
+        _dataset = json.load(in_file)
+    in_file.close()
+    save_tag = []
+    for element in _dataset['intents']:
+        save_tag.append(str(element["tag"]))
+
+    if item_id >= len(save_tag):
+        return "Danh sách chỉ có: " + str(len(save_tag)) + " Tag,  không thể vượt quá!"
+    elif item_id < 0:
+        return "Không thể là số âm"
+    else:
+        for i in range(len(save_tag)):
+            if i == item_id:
+                value = save_tag[i]
+        return value
+        
+
 @app.post("/dataset/edit-dataset/")
 async def edit_dataset(item: B_Item_3):
     tag = item.tag
