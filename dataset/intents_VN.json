@@ -12,7 +12,7 @@
     "Tôi cần giúp đỡ"
    ],
    "responses": [
-    "Xin chào quý khách. Hãy hỏi, <Tôi cần bạn hỗ trợ>, để biết thêm thông tin về tôi nhé",
+    "Xin chào quý khách. Hãy hỏi, <hướng dẫn>, để biết thêm thông tin về tôi nhé",
     "Xin chào. Mình có thể hỗ trợ gì cho bạn không? Bạn có thể hỏi <Hướng dẫn sử dụng>."
    ],
    "context_set": ""
@@ -78,7 +78,8 @@
    "patterns": [
     "Tôi muốn đánh giá",
     "Tôi có ý kiến về bạn",
-    "ý kiến khách hàng"
+    "ý kiến khách hàng",
+    "đánh giá"
    ],
    "responses": [
     "Bạn có thể điền vào tờ ý kiến khách hàng này ạ. Chỉ mất 2 phút thôi. https://docs.google.com/forms/d/1AwwqmHLFqH5CCEfA8ft_6RV6Fy7oKUn-B8OdmFZMUsw/edit?usp=sharing"
@@ -92,11 +93,13 @@
     "Bạn giúp được gì",
     "Bạn làm được gì",
     "Tôi cần bạn hướng dẫn",
+    "Hỗ trợ tôi",
+    "Hướng dẫn",
     "Những gì bạn làm được",
     "trình bày những gì bạn làm được"
    ],
    "responses": [
-    "Tôi có thể hỗ trợ. <tư vấn giá sản phẩm>. <tư vấn mua hàng>. <giới thiệu sản phẩm>. <các loại kích thước>. <thanh toán hóa đơn>"
+    "Tôi có thể hỗ trợ. <tư vấn giá sản phẩm>. <tư vấn mua hàng>. <giới thiệu sản phẩm>. <các loại kích thước>. <thanh toán hóa đơn>. <đánh giá>"
    ],
    "context_set": ""
   },
