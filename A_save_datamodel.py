@@ -1,40 +1,47 @@
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
-import numpy as np
+from nltk.stem import WordNetLemmatizer
 import pickle
+lemmatizer = WordNetLemmatizer()
+stemmer = LancasterStemmer()
 
 class savedata:
     def learningdata(self, data):
         self.data = data
+
         words = []
         labels = []
-        docs_x = []
-        docs_y = []
-        stemmer = LancasterStemmer()
+
+        X_train = []
+        Y_train = []
+
+        ignore_letter = ['?','!', '.', ',']
+
         for intent in data["intents"]:
             for pattern in intent["patterns"]:
-                wrds = nltk.word_tokenize(pattern)
+                wrds = nltk.word_tokenize(pattern)          #tách từ chữ
                 words.extend(wrds)
-                docs_x.append(wrds)
-                docs_y.append(intent["tag"])
+                X_train.append(wrds)
+                Y_train.append(intent["tag"])
 
             if intent["tag"] not in labels:
                 labels.append(intent["tag"])
 
-        words = [stemmer.stem(w.lower()) for w in words if w not in "?"]
-        words = sorted(list(set(words)))
+        words = [lemmatizer.lemmatize(w) for w in words if w not in ignore_letter] # Qui đổi về từ gốc (dùng trong tiếng anh)
 
+        words = sorted(list(set(words)))
         labels = sorted(labels)
+
 
         training = []
         output = []
 
-        out_empty = [0 for _ in range(len(labels))]
+        out_empty = [0] * len(labels)   # tạo 1 mảng các số 0  gắn với label tag
 
-        for x, doc in enumerate(docs_x):
+        for i, doc in enumerate(X_train):
             bag = []
 
-            wrds = [stemmer.stem(w) for w in doc]
+            wrds = [lemmatizer.lemmatize(w) for w in doc]       # Qui đổi về từ gốc (dùng trong tiếng anh)
 
             for w in words:
                 if w in wrds:
@@ -42,14 +49,14 @@ class savedata:
                 else:
                     bag.append(0)
 
-            output_row = out_empty[:]
-            output_row[labels.index(docs_y[x])] = 1
+            output_row = list(out_empty)
+            output_row[labels.index(Y_train[i])] = 1
 
             training.append(bag)
             output.append(output_row)
 
-        training = np.array(training)
-        output = np.array(output)
+        training = list(training)
+        output = list(output)
 
         with open("datamodel/data.pickle", "wb") as f:
             pickle.dump((words, labels, training, output),f)

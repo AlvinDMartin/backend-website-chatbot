@@ -1,14 +1,10 @@
 # API
-import re
 from fastapi import FastAPI
 from pydantic import BaseModel
 from pydantic.tools import T
 from datetime import datetime
 import json
-import os
-from typing import Optional
 
-from starlette.responses import Response
 # from fastapi.middleware.cors import CORSMiddleware
 
 _path = "Update_dataset/newquestions.json"
@@ -79,6 +75,11 @@ async def get_time():
     start = datetime.utcnow()
     print(start)
     return {"start_date": start}
+
+@app.post("/chatbot/chat-hello")
+async def run_chat_hello(item: C_Item):
+    return A_m.hello(item.text)
+
 
 
 @app.post("/chatbot/chat-run")

@@ -2,8 +2,7 @@
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
 import numpy as np
-import tflearn
-import tensorflow as tf
+from tensorflow import keras
 import random
 import json
 import pickle
@@ -11,10 +10,13 @@ from time import strftime
 from A_save_datamodel import savedata
 from Open_Webbrowser import open_webbrowser
 import os
+from nltk.stem import WordNetLemmatizer
+# import matplotlib.pyplot as plt
 
 _sd = savedata()
 open_web = open_webbrowser()
 stemmer = LancasterStemmer()
+lemmatizer = WordNetLemmatizer()
 
 class A_main():
 
@@ -38,25 +40,32 @@ class A_main():
             words, labels, training, output = pickle.load(f)
         f.close()
 
-        tf.compat.v1.reset_default_graph()
-        net = tflearn.input_data(shape=[None, len(training[0])]) #input layer
-        net = tflearn.fully_connected(net, 8)   # 8neuron hidden layer
-        net = tflearn.fully_connected(net, 8)   # 8neuron hidden layer
-        net = tflearn.fully_connected(net, len(output[0]), activation="softmax")    #output layer
-        net = tflearn.regression(net)
-        model = tflearn.DNN(net)
 
-        self.model = model
         self.words = words
         self.labels = labels
         self.data = data
 
         if runmodel == True:
             print("Run MODEL")
-            model.fit(training, output, n_epoch=1000, batch_size=8, show_metric = True)
-            model.save("datamodel/model.tflearn")
+            model = keras.models.Sequential([
+                keras.layers.Input(shape=(len(training[0]))),
+                keras.layers.Dense(128, activation='relu'),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(64, activation='relu'),
+                keras.layers.Dropout(0.5),
+                keras.layers.Dense(len(output[0]), activation='softmax')
+                ])
+            model.summary()
+            optimizer = 'Adam'
+            model.compile(loss="categorical_crossentropy", optimizer=optimizer, metrics=["accuracy"])
+            hist = model.fit(np.array(training), np.array(output), epochs=300, batch_size=5, verbose=1)
+            model.save(r'datamodel/chatbot_models.h5')
+            # plt.plot(hist.history['loss'])
+            # plt.show()
+        
 
-        model.load("datamodel/model.tflearn")
+        model = keras.models.load_model('datamodel/chatbot_models.h5')
+        self.model = model
 
     def save_new_questions(self,val_patt):
         check = True
@@ -86,11 +95,12 @@ class A_main():
             json.dump(data, out_file, indent = 1,ensure_ascii=False)
         out_file.close()
 
-    def bag_of_words(self,s, words):
+    def bag_of_words(self, s, words):
         bag = [0 for _ in range(len(words))]
 
         s_words = nltk.word_tokenize(s)
-        s_words = [stemmer.stem(word.lower()) for word in s_words]
+        #s_words = [stemmer.stem(word.lower()) for word in s_words]
+        s_words = [lemmatizer.lemmatize(word) for word in s_words]
 
         for se in s_words:
             for i,w in enumerate(words):
@@ -108,16 +118,27 @@ class A_main():
             #     return self.output_text
             #     break
 
-            results = self.model.predict([self.bag_of_words(inp, self.words)])[0]
+            bow = self.bag_of_words(inp, self.words)
+            results = self.model.predict(np.array([bow]))[0]
             results_index = np.argmax(results)
+
+            #Draw Test
+            # plt.xlabel('Vị trí tag')
+            # plt.ylabel('Phần trăm')
+            # plt.axis([0, len(results), -2, 102])
+            # plt.title('Predict')
+            # plt.legend()
+            # for i, r in enumerate(results):
+            #     plt.scatter(i,r * 100,c='b')
+            # plt.scatter(results_index,results[results_index] * 100,c='r')
+            # plt.show()
+
+
             tag = self.labels[results_index]
-            
-            if results[results_index] > 0.7:
-                
+            if results[results_index] > 0.55:
                 for tg in self.data["intents"]:
                     if tg['tag'] == tag:
                         responses = tg['responses']
-
                 self.output_text = str(random.choice(responses))
 
                 #openweb
@@ -147,13 +168,13 @@ class A_main():
                 return self.output_text
 
             else:
-                if len(inp.split()) <= 2:
-                    self.output_text = str("Tôi chưa hiểu, bạn hãy hỏi câu hỏi dài hơn một chút nhé!")
+                if len(inp.split()) < 2:
+                    self.output_text = str("Tôi chưa hiểu, bạn hãy hỏi câu hỏi dài hơn một chút nhé.")
                 elif len(inp.split()) >= 15:
-                    self.output_text = str("Câu hỏi dài quá tôi không nhớ hết, bạn hãy hỏi từng câu nhé!")
+                    self.output_text = str("Câu hỏi dài quá tôi không hiểu hết, bạn hãy hỏi từng câu nhé.")
                 else:    
                     self.save_new_questions(str(inp))
-                    self.output_text = str("Có lẽ tôi chưa được học, bạn liên hệ nhân viên để được giải đáp ạ.")
+                    self.output_text = str("Có lẽ tôi chưa được học, bạn đợi Admin để được giải đáp nhé.")
                 return self.output_text
                 # self.output_text = str("Tôi chưa hiểu, bạn có thể lặp lại")
                 # return self.output_text
@@ -162,28 +183,28 @@ class A_main():
         while True:
             day_time = int(strftime('%H'))
             if input_text == '':
-                intro = "Xin chào quí khách! mình là Nhân viên tư vấn bán hàng thông minh, bạn cho mình biết tên ạ"
+                intro = "Xin chào quí khách. Tôi là Nhân viên tư vấn bán hàng thông minh. Bất đầu hỏi tôi đi nào"
                 self.output_text = intro
                 return self.output_text
             else:
-                name = self.input_text
-                first_name = ''
+                name = input_text
+                # first_name = ''
 
-                for l in name[::-1]:
-                    if l != ' ':
-                        first_name =str(l) +  first_name
-                    else:
-                        break
+                # for l in name[::-1]:
+                #     if l != ' ':
+                #         first_name =str(l) +  first_name
+                #     else:
+                #         break
 
                 if day_time < 12:
-                    self.output_text = str("Chào buổi sáng bạn {}. Chúc bạn một ngày tốt lành.".format(first_name))
+                    self.output_text = str("Chào buổi sáng bạn {}.Tôi là nhân viên ảo. Chúc bạn một ngày tốt lành.".format(name))
                     return self.output_text
 
                 elif 12 <= day_time < 18:
-                    self.output_text = str("Chào buổi chiều bạn {}. Bạn có thể hỏi mình ngay bây giờ ạ.".format(first_name))
+                    self.output_text = str("Chào buổi chiều bạn {}. Tôi là nhân viên ảo. Bạn có thể hỏi tôi ngay bây giờ nhé.".format(name))
                     return self.output_text
                 else:
-                    self.output_text = str("Chào buổi tối bạn {}. Mình có thể giúp gì được cho bạn ạ.".format(first_name))
+                    self.output_text = str("Chào buổi tối bạn {}.Tôi là nhân viên ảo. Tôi có thể giúp gì được cho bạn nà.".format(name))
                     return self.output_text
 
 
