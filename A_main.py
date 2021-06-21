@@ -45,9 +45,7 @@ class A_main():
         self.labels = labels
         self.data = data
 
-        if runmodel == True:
-            print("Run MODEL")
-            model = keras.models.Sequential([
+        model = keras.models.Sequential([
                 keras.layers.Input(shape=(len(training[0]))),
                 keras.layers.Dense(128, activation='relu'),
                 keras.layers.Dropout(0.5),
@@ -55,16 +53,22 @@ class A_main():
                 keras.layers.Dropout(0.5),
                 keras.layers.Dense(len(output[0]), activation='softmax')
                 ])
-            model.summary()
+        model.summary()
+
+        if runmodel == True:
+            print("Run MODEL")
+
             optimizer = 'Adam'
             model.compile(loss="categorical_crossentropy", optimizer=optimizer, metrics=["accuracy"])
             hist = model.fit(np.array(training), np.array(output), epochs=300, batch_size=5, verbose=1)
-            model.save(r'datamodel/chatbot_models.h5')
+            #model.save(r'datamodel/chatbot_models.h5')
+            model.save_weights('datamodel/chatbot_models.h5')
             # plt.plot(hist.history['loss'])
             # plt.show()
         
 
-        model = keras.models.load_model('datamodel/chatbot_models.h5')
+        #model = keras.models.load_model('datamodel/chatbot_models.h5')
+        model.load_weights('datamodel/chatbot_models.h5')
         self.model = model
 
     def save_new_questions(self,val_patt):
@@ -209,3 +213,5 @@ class A_main():
 
 
 
+
+# %%
