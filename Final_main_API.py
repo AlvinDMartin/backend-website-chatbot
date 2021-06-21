@@ -42,7 +42,9 @@ B_m = B_save_new_data()
 from B_save_new_dataset import processing_dataset
 savejson = processing_dataset()
 from C_Zalo_tts import tts
-C_m = tts()
+audio_zalo = tts()
+from C_fpt_tts import fpt_tts
+audio_fpt = fpt_tts()
 
 
 class A_Item(BaseModel):
@@ -196,4 +198,11 @@ async def soundAPI (item: C_Item):
     if item.text == "":
         return "Error: Text chưa được truyền vào"
     else:
-        return C_m.Create_API(item.text)
+        return audio_zalo.Create_API(item.text)
+
+@app.post("/texttospeech/soundAPI/fpt/")
+async def soundAPI (item: C_Item):
+    if item.text == "":
+        return "Error: Text chưa được truyền vào"
+    else:
+        return audio_fpt.Create_FPT_API(item.text)
