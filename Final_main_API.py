@@ -80,7 +80,10 @@ async def get_time():
 
 @app.post("/chatbot/chat-hello")
 async def run_chat_hello(item: C_Item):
-    return A_m.hello(item.text)
+    if item.text == '':
+        item.text = 'nha'
+    x = A_m.hello(item.text)
+    return x, audio_zalo.Create_API(x)
 
 
 

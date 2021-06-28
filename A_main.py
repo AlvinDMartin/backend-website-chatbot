@@ -53,7 +53,7 @@ class A_main():
                 keras.layers.Dropout(0.5),
                 keras.layers.Dense(len(output[0]), activation='softmax')
                 ])
-        model.summary()
+        #model.summary()
 
         if runmodel == True:
             print("Run MODEL")
