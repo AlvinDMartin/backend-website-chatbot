@@ -11,7 +11,7 @@ from A_save_datamodel import savedata
 from Open_Webbrowser import open_webbrowser
 import os
 from nltk.stem import WordNetLemmatizer
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 _sd = savedata()
 open_web = open_webbrowser()
