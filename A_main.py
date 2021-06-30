@@ -11,7 +11,7 @@ from A_save_datamodel import savedata
 from Open_Webbrowser import open_webbrowser
 import os
 from nltk.stem import WordNetLemmatizer
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 _sd = savedata()
 open_web = open_webbrowser()
@@ -183,9 +183,9 @@ class A_main():
 
     def hello(self, input_text=''):
         while True:
-            day_time = int(strftime('%H'))
+            day_time = int(strftime('%H')) - 7
             if input_text == '':
-                intro = "Xin chào quí khách. Tôi là Nhân viên tư vấn bán hàng thông minh. Bất đầu hỏi tôi đi nào"
+                intro = "Xin chào quí khách. Tôi là Nhân viên tư vấn bán hàng thông minh. Hãy bất đầu trò chuyện với tôi đi nào."
                 self.output_text = intro
                 return self.output_text
             else:
@@ -199,14 +199,14 @@ class A_main():
                 #         break
 
                 if day_time < 12:
-                    self.output_text = str("Chào buổi sáng bạn {}.Tôi là nhân viên ảo. Chúc bạn một ngày tốt lành.".format(name))
+                    self.output_text = str("Chào buổi sáng bạn {}. Tôi là nhân viên ảo. Chúc bạn một ngày tốt lành.".format(name))
                     return self.output_text
 
                 elif 12 <= day_time < 18:
                     self.output_text = str("Chào buổi chiều bạn {}. Tôi là nhân viên ảo. Bạn có thể hỏi tôi ngay bây giờ nhé.".format(name))
                     return self.output_text
                 else:
-                    self.output_text = str("Chào buổi tối bạn {}.Tôi là nhân viên ảo. Tôi có thể giúp gì được cho bạn nà.".format(name))
+                    self.output_text = str("Chào buổi tối bạn {}. Tôi là nhân viên ảo. Tôi có thể giúp gì được cho bạn nà.".format(name))
                     return self.output_text
 
 

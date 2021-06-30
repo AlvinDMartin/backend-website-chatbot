@@ -82,7 +82,7 @@
     "đánh giá"
    ],
    "responses": [
-    "Bạn có thể điền vào tờ ý kiến khách hàng này ạ. Chỉ mất 2 phút thôi. https://docs.google.com/forms/d/1AwwqmHLFqH5CCEfA8ft_6RV6Fy7oKUn-B8OdmFZMUsw/edit?usp=sharing"
+    "Bạn có thể điền vào tờ ý kiến khách hàng này ạ. Chỉ mất 2 phút thôi. https://forms.gle/W7m8gKV3XtjUimWYA"
    ],
    "context_set": ""
   },
@@ -138,7 +138,7 @@
       "làm sao chọn kích thước"
      ],
      "responses": [
-      "Các kích thước đều theo chuẩn ạ, bạn có thể tham khảo ở đây. https://cutt.ly/nn1ZEHd"
+      "Các kích thước đều theo chuẩn ạ, bạn có thể tham khảo ở đây. https://cutt.ly/MmascUi"
      ],
      "context_set": ""
      },
@@ -272,6 +272,17 @@
         "Hãy bấm vào liên kết. Các sản phẩm quần sẽ hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Pants/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
        ],
        "context_set": ""
-      }
+   },
+   {
+      "tag": "Tên Giám Đốc",
+      "patterns": [
+       "Hồ Quốc Đạt là ai",
+       "Võ Thành Văn là ai"
+      ],
+      "responses": [
+       "Là người phát triển ra tôi đó, đáng yêu lắm."
+      ],
+      "context_set": ""
+  }
  ]
 }
