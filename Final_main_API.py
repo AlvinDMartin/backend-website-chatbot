@@ -77,12 +77,12 @@ async def get_time():
     start = datetime.utcnow()
     print(start)
     return {"start_date": start}
+#-------------------------------------------------------
 
 @app.post("/chatbot/chat-hello")
 async def run_chat_hello(item: C_Item):
     x = A_m.hello(item.text)
     return x, audio_zalo.Create_API(x)
-
 
 
 @app.post("/chatbot/chat-run")
@@ -101,6 +101,9 @@ async def training_chat():
     A_m.Action(True, True)
     return "training dữ liệu mới thành công"
 
+
+
+#---------------------update new question-----------------
 @app.get("/update/chat-getlistquestions")
 async def list_questions():
 
@@ -146,6 +149,9 @@ async def new_question_del(item_id: int):
     else:
         return "Không có câu hỏi nào để xóa"
 
+
+#-------------------------------chức năng cho dataset--------------------
+
 @app.get("/dataset/get-all-dataset/")
 async def get_dataset():
     with open(_path_dataset,'r',encoding='utf-8') as in_file:
@@ -181,7 +187,27 @@ async def get_one_dataset(item_id: int):
             if i == item_id:
                 value = save_tag[i]
         return value
-        
+
+@app.post("/dataset/create-dataset/")
+async def create_dataset(item: B_Item_3):
+    tag = item.tag
+    quest = item.patterns
+    res = item.responses
+    boo = False
+
+    with open(_path_dataset,'r',encoding='utf-8') as in_file:
+        data = json.load(in_file)
+        for element in data['intents']:
+            if element["tag"] == tag:
+                boo = True
+                break
+    in_file.close()
+    if boo == True:
+        return "Tag bạn thêm đã có, vui lòng chọn Add"
+    else:   
+        savejson.new_dataset(tag, quest, res)   
+        return "Create thành công"
+
 
 @app.post("/dataset/edit-dataset/")
 async def edit_dataset(item: B_Item_3):
@@ -194,6 +220,8 @@ async def edit_dataset(item: B_Item_3):
 async def dataset_del (item: B_Item_2):
     return savejson.delete_dataset(item.tag)
 
+
+#----------------------TTS----------------------------
 @app.post("/texttospeech/soundAPI/")
 async def soundAPI (item: C_Item):
     if item.text == "":

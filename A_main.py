@@ -40,11 +40,9 @@ class A_main():
             words, labels, training, output = pickle.load(f)
         f.close()
 
-
         self.words = words
         self.labels = labels
         self.data = data
-
 
         if runmodel == True:
             print("Run MODEL")
@@ -112,9 +110,7 @@ class A_main():
 
     def chat(self, input_text):
         while True:
-
             inp = input_text
-
             # if inp.lower() == "tạm biệt":
             #     self.output_text = "Chúc quý khách một ngày tốt lành và hẹn gặp lại"
             #     return self.output_text
@@ -137,7 +133,7 @@ class A_main():
 
 
             tag = self.labels[results_index]
-            if results[results_index] > 0.55:
+            if results[results_index] > 0.6:
                 for tg in self.data["intents"]:
                     if tg['tag'] == tag:
                         responses = tg['responses']
@@ -183,7 +179,7 @@ class A_main():
 
     def hello(self, input_text=''):
         while True:
-            day_time = int(strftime('%H')) - 7
+            day_time = int(strftime('%H')) + 7
             if input_text == '':
                 intro = "Xin chào quí khách. Tôi là Nhân viên tư vấn bán hàng thông minh. Hãy bất đầu trò chuyện với tôi đi nào."
                 self.output_text = intro

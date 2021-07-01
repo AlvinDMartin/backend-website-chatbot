@@ -59,20 +59,20 @@
    "context_set": ""
   },
   {
-     "tag": "Lỗi",
-     "patterns": [
-      "Bạn trả lời sai rồi",
-      "không đúng ý câu hỏi của tôi",
-      "bạn còn ngu lắm",
-      "nhân viên cần phát triển thông minh hơn",
-      "lỗi hệ thống rồi",
-      "sai rồi"
-     ],
-     "responses": [
-      "Xin lỗi quý khách, vì chúng tôi đang trong quá trình thử nghiệm, Hãy phản hồi ý kiến cho tôi nhé. hãy nhập. <Đánh giá khách hàng>"
-     ],
-     "context_set": ""
-    },
+   "tag": "Lỗi",
+   "patterns": [
+    "Bạn trả lời sai rồi",
+    "không đúng ý câu hỏi của tôi",
+    "bạn còn ngu lắm",
+    "nhân viên cần phát triển thông minh hơn",
+    "lỗi hệ thống rồi",
+    "sai rồi"
+   ],
+   "responses": [
+    "Xin lỗi quý khách, vì chúng tôi đang trong quá trình thử nghiệm, Hãy phản hồi ý kiến cho tôi nhé. hãy nhập. <Đánh giá khách hàng>"
+   ],
+   "context_set": ""
+  },
   {
    "tag": "Ý kiến khách hàng",
    "patterns": [
@@ -129,34 +129,34 @@
    "context_set": ""
   },
   {
-     "tag": "Kích thước",
-     "patterns": [
-      "kích thước như nào ạ",
-      "các mẫu có kích thước ra sao",
-      "size các loại",
-      "sao không thấy size ạ",
-      "làm sao chọn kích thước"
-     ],
-     "responses": [
-      "Các kích thước đều theo chuẩn ạ, bạn có thể tham khảo ở đây. https://cutt.ly/MmascUi"
-     ],
-     "context_set": ""
-     },
-     {
-          "tag": "Chất liệu",
-          "patterns": [
-           "Chất liệu áo này là gì ạ",
-           "Áo này mặc có mát không",
-           "Áo này mặc có nóng không",
-           "đồ này nóng không",
-           "vải dày hay mỏng",
-           "chất liêu vải làm bằng gì"
-          ],
-          "responses": [
-           "Bạn hãy chọn xem chi tiết cho sản phẩm bạn chọn nhé. Nếu không có, gửi mã sản phẩm, Admin của chúng tôi sẽ hỗ trợ bạn nhé."
-          ],
-          "context_set": ""
-          },
+   "tag": "Kích thước",
+   "patterns": [
+    "kích thước như nào ạ",
+    "các mẫu có kích thước ra sao",
+    "size các loại",
+    "sao không thấy size ạ",
+    "làm sao chọn kích thước"
+   ],
+   "responses": [
+    "Các kích thước đều theo chuẩn ạ, bạn có thể tham khảo ở đây. https://cutt.ly/MmascUi"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Chất liệu",
+   "patterns": [
+    "Chất liệu áo này là gì ạ",
+    "Áo này mặc có mát không",
+    "Áo này mặc có nóng không",
+    "đồ này nóng không",
+    "vải dày hay mỏng",
+    "chất liêu vải làm bằng gì"
+   ],
+   "responses": [
+    "Bạn hãy chọn xem chi tiết cho sản phẩm bạn chọn nhé. Nếu không có, gửi mã sản phẩm, Admin của chúng tôi sẽ hỗ trợ bạn nhé."
+   ],
+   "context_set": ""
+  },
   {
    "tag": "Thanh toán hóa đơn",
    "patterns": [
@@ -227,62 +227,72 @@
    "context_set": ""
   },
   {
-     "tag": "Mở trang áo thun",
-     "patterns": [
-      "Tôi muốn mua áo thun",
-      "có áo thun không",
-      "áo thun cho Nam",
-      "áo thun cho nữ",
-      "áo thun phông rộng",
-      "áo unisex"
-     ],
-     "responses": [
-      "Hãy bấm vào liên kết. Các sản phẩm áo thun sẽ hiển thị. tha hồ bạn lựa chọn nhé. https://chopper-shop-1.herokuapp.com/search/category/T-Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1",
-      "Bạn chọn vào mục Shop. bên trong đó có nhiều loại áo cho bạn lắm. hi hi. hoặc chọn liên kết cho dễ. https://chopper-shop-1.herokuapp.com/search/category/T-Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
-     ],
-     "context_set": ""
-    },
-    {
-     "tag": "Mở trang áo sơ mi",
-     "patterns": [
-      "Tôi muốn mua áo sơ mi",
-      "áo sơ mi",
-      "áo sơ mi cho Nam",
-      "áo xơ my cho nữ",
-      "áo có nút phông rộng",
-      "áo sơ-mi"
-     ],
-     "responses": [
-      "Hãy bấm vào liên kết. Các sản phẩm áo sơ mi sẽ hiển thị. tha hồ bạn lựa chọn nhé. https://chopper-shop-1.herokuapp.com/search/category/Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1",
-      "Bạn chọn vào mục Shop. bên trong đó có nhiều loại áo cho bạn lắm. hi hi. hay chọn liên kết này cho dễ. https://chopper-shop-1.herokuapp.com/search/category/Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
-     ],
-     "context_set": ""
-    },
+   "tag": "Mở trang áo thun",
+   "patterns": [
+    "Tôi muốn mua áo thun",
+    "có áo thun không",
+    "áo thun cho Nam",
+    "áo thun cho nữ",
+    "áo thun phông rộng",
+    "áo unisex"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Các sản phẩm áo thun sẽ hiển thị. tha hồ bạn lựa chọn nhé. https://chopper-shop-1.herokuapp.com/search/category/T-Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1",
+    "Bạn chọn vào mục Shop. bên trong đó có nhiều loại áo cho bạn lắm. hi hi. hoặc chọn liên kết cho dễ. https://chopper-shop-1.herokuapp.com/search/category/T-Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
   {
-       "tag": "Mở trang mua quần",
-       "patterns": [
-        "Tôi muốn mua quần",
-        "có bán quần không",
-        "có bao nhiêu loại quần",
-        "Có quần jogger không",
-        "Có quần Jean không",
-        "Có quần đùi không"
-       ],
-       "responses": [
-        "Hãy bấm vào liên kết. Các sản phẩm quần sẽ hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Pants/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
-       ],
-       "context_set": ""
-   },
-   {
-      "tag": "Tên Giám Đốc",
-      "patterns": [
-       "Hồ Quốc Đạt là ai",
-       "Võ Thành Văn là ai"
-      ],
-      "responses": [
-       "Là người phát triển ra tôi đó, đáng yêu lắm."
-      ],
-      "context_set": ""
+   "tag": "Mở trang áo sơ mi",
+   "patterns": [
+    "Tôi muốn mua áo sơ mi",
+    "áo sơ mi",
+    "áo sơ mi cho Nam",
+    "áo xơ my cho nữ",
+    "áo có nút phông rộng",
+    "áo sơ-mi"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Các sản phẩm áo sơ mi sẽ hiển thị. tha hồ bạn lựa chọn nhé. https://chopper-shop-1.herokuapp.com/search/category/Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1",
+    "Bạn chọn vào mục Shop. bên trong đó có nhiều loại áo cho bạn lắm. hi hi. hay chọn liên kết này cho dễ. https://chopper-shop-1.herokuapp.com/search/category/Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Mở trang mua quần",
+   "patterns": [
+    "Tôi muốn mua quần",
+    "có bán quần không",
+    "có bao nhiêu loại quần",
+    "Có quần jogger không",
+    "Có quần Jean không",
+    "Có quần đùi không"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Các sản phẩm quần sẽ hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Pants/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Tên Giám Đốc",
+   "patterns": [
+    "Hồ Quốc Đạt là ai",
+    "Võ Thành Văn là ai"
+   ],
+   "responses": [
+    "Là người phát triển ra tôi đó, đáng yêu lắm."
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "test",
+   "patterns": [
+    ""
+   ],
+   "responses": [
+    ""
+   ],
+   "context_set": ""
   }
  ]
 }
