@@ -6,6 +6,20 @@ lemmatizer = WordNetLemmatizer()
 stemmer = LancasterStemmer()
 
 class savedata:
+
+    def remove_stop_word(self, line):
+
+        # Danh sách stopword
+        f = open("stopword.txt", "r",encoding="utf8")
+        stopword = f.read()
+ 
+        words = []
+        for word in line.strip().split():
+            if word not in stopword:
+                words.append(word)
+        return ' '.join(words)
+
+
     def learningdata(self, data):
         self.data = data
 
@@ -19,7 +33,8 @@ class savedata:
 
         for intent in data["intents"]:
             for pattern in intent["patterns"]:
-                wrds = nltk.word_tokenize(pattern)          #tách từ chữ
+                patt = self.remove_stop_word(pattern.lower())
+                wrds = nltk.word_tokenize(patt)          #tách từ chữ
                 words.extend(wrds)
                 X_train.append(wrds)
                 Y_train.append(intent["tag"])

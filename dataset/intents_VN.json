@@ -5,10 +5,10 @@
    "patterns": [
     "Xin chào",
     "Bạn khỏe không",
-    "Có ai ở đó không",
+    "Hello",
     "Alo",
     "Chúc một ngày tốt lành",
-    "Ai có thể giúp tôi",
+    "Hi",
     "Tôi cần giúp đỡ"
    ],
    "responses": [
@@ -262,7 +262,7 @@
    "tag": "Mở trang mua quần",
    "patterns": [
     "Tôi muốn mua quần",
-    "có bán quần không",
+    "quần",
     "có bao nhiêu loại quần",
     "Có quần jogger không",
     "Có quần Jean không",
@@ -281,16 +281,6 @@
    ],
    "responses": [
     "Là người phát triển ra tôi đó, đáng yêu lắm."
-   ],
-   "context_set": ""
-  },
-  {
-   "tag": "test",
-   "patterns": [
-    ""
-   ],
-   "responses": [
-    ""
    ],
    "context_set": ""
   }

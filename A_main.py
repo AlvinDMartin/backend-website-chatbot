@@ -8,13 +8,13 @@ import json
 import pickle
 from time import strftime
 from A_save_datamodel import savedata
-from Open_Webbrowser import open_webbrowser
+# from Open_Webbrowser import open_webbrowser
 import os
 from nltk.stem import WordNetLemmatizer
-#import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 _sd = savedata()
-open_web = open_webbrowser()
+# open_web = open_webbrowser()
 stemmer = LancasterStemmer()
 lemmatizer = WordNetLemmatizer()
 
@@ -97,8 +97,8 @@ class A_main():
 
     def bag_of_words(self, s, words):
         bag = [0 for _ in range(len(words))]
-
-        s_words = nltk.word_tokenize(s)
+        ss = _sd.remove_stop_word(s.lower())
+        s_words = nltk.word_tokenize(ss)            #.lower() chuyển IN HOA thành in thường
         #s_words = [stemmer.stem(word.lower()) for word in s_words]
         s_words = [lemmatizer.lemmatize(word) for word in s_words]
 
@@ -174,8 +174,6 @@ class A_main():
                     self.save_new_questions(str(inp))
                     self.output_text = str("Có lẽ tôi chưa được học, bạn đợi Admin để được giải đáp nhé.")
                 return self.output_text
-                # self.output_text = str("Tôi chưa hiểu, bạn có thể lặp lại")
-                # return self.output_text
 
     def hello(self, input_text=''):
         while True:
@@ -186,13 +184,6 @@ class A_main():
                 return self.output_text
             else:
                 name = input_text
-                # first_name = ''
-
-                # for l in name[::-1]:
-                #     if l != ' ':
-                #         first_name =str(l) +  first_name
-                #     else:
-                #         break
 
                 if day_time < 12:
                     self.output_text = str("Chào buổi sáng bạn {}. Tôi là nhân viên ảo. Chúc bạn một ngày tốt lành.".format(name))
