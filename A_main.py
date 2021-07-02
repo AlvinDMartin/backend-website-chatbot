@@ -57,7 +57,7 @@ class A_main():
             #model.summary()
             optimizer = 'Adam'
             model.compile(loss="categorical_crossentropy", optimizer=optimizer, metrics=["accuracy"])
-            hist = model.fit(np.array(training), np.array(output), epochs=300, batch_size=5, verbose=1)
+            hist = model.fit(np.array(training), np.array(output), epochs=500, batch_size=5, verbose=1)
             model.save('datamodel/chatbot_models.h5')
             #model.save_weights('datamodel/chatbot_models.h5')
             # plt.plot(hist.history['loss'])

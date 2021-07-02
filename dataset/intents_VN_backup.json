@@ -1,0 +1,288 @@
+{
+ "intents": [
+  {
+   "tag": "Lời Chào",
+   "patterns": [
+    "Xin chào",
+    "Bạn khỏe không",
+    "Hello",
+    "Alo",
+    "Chúc một ngày tốt lành",
+    "Hi",
+    "Tôi cần giúp đỡ"
+   ],
+   "responses": [
+    "Xin chào quý khách. Hãy hỏi, <hướng dẫn>, để biết thêm thông tin về tôi nhé",
+    "Xin chào. Mình có thể hỗ trợ gì cho bạn không? Bạn có thể hỏi <Hướng dẫn sử dụng>."
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Tạm biệt",
+   "patterns": [
+    "Cám ơn",
+    "Gặp bạn sau",
+    "tạm biệt",
+    "tôi rời khỏi đây",
+    "Chúc một ngày vui"
+   ],
+   "responses": [
+    "Hẹn gặp lại quý khách !",
+    "Hãy ghé thăm tôi nhé",
+    "xin chào tạm biệt"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Tên",
+   "patterns": [
+    "Tên của bạn là gì",
+    "Tôi có thể gọi bạn là gì"
+   ],
+   "responses": [
+    "Tôi là nhân viên bán hàng ảo, tôi giúp bạn nhé.",
+    "Tôi là nhân viên ảo, tôi có thể giúp bạn không?"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Cửa hàng",
+   "patterns": [
+    "Cửa hàng mình địa chỉ ở đâu",
+    "tôi muốn đến tận hơi mua hàng",
+    "Địa chỉ cửa hàng",
+    "Bạn đang ở đâu"
+   ],
+   "responses": [
+    "Cửa hàng mình đang ở địa chỉ số 29/2/19 Lê Đức Thọ, Phường 7, Gò Vấp"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Lỗi",
+   "patterns": [
+    "Bạn trả lời sai rồi",
+    "không đúng ý câu hỏi của tôi",
+    "bạn còn ngu lắm",
+    "nhân viên cần phát triển thông minh hơn",
+    "lỗi hệ thống rồi",
+    "sai rồi"
+   ],
+   "responses": [
+    "Xin lỗi quý khách, vì chúng tôi đang trong quá trình thử nghiệm, Hãy phản hồi ý kiến cho tôi nhé. hãy nhập. <Đánh giá khách hàng>"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Ý kiến khách hàng",
+   "patterns": [
+    "Tôi muốn đánh giá",
+    "Tôi có ý kiến về bạn",
+    "ý kiến khách hàng",
+    "đánh giá"
+   ],
+   "responses": [
+    "Bạn có thể điền vào tờ ý kiến khách hàng này ạ. Chỉ mất 2 phút thôi. https://forms.gle/W7m8gKV3XtjUimWYA"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Hướng Dẫn",
+   "patterns": [
+    "Hướng dẫn sử dụng",
+    "Bạn giúp được gì",
+    "Bạn làm được gì",
+    "Tôi cần bạn hướng dẫn",
+    "Hỗ trợ tôi",
+    "Hướng dẫn",
+    "Những gì bạn làm được",
+    "trình bày những gì bạn làm được"
+   ],
+   "responses": [
+    "Tôi có thể hỗ trợ. <tư vấn giá sản phẩm>. <tư vấn mua hàng>. <giới thiệu sản phẩm>. <các loại kích thước>. <thanh toán hóa đơn>. <đánh giá>"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Tư vấn giá sản phẩm",
+   "patterns": [
+    "Tư vấn giá sản phẩm",
+    "Giá cả sản phẩm thế nào ạ"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Sau đó chọn mức giá phù hợp với nhu cầu của mình nhé. https://chopper-shop-1.herokuapp.com/search/name"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Giới thiệu sản phẩm",
+   "patterns": [
+    "giới thiệu sản phẩm",
+    "tôi muốn xem các loại sản phẩm",
+    "Làm sao để xem sản phẩm",
+    "Hiển thị tất cả sản phẩm",
+    "Tất cả thông tin sản phẩm"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết, Sau đó chọn mức mục sản phẩm mà bạn cần nhé. https://chopper-shop-1.herokuapp.com/search/name"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Kích thước",
+   "patterns": [
+    "kích thước như nào ạ",
+    "các mẫu có kích thước ra sao",
+    "size các loại",
+    "sao không thấy size ạ",
+    "làm sao chọn kích thước"
+   ],
+   "responses": [
+    "Các kích thước đều theo chuẩn ạ, bạn có thể tham khảo ở đây. https://cutt.ly/MmascUi"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Chất liệu",
+   "patterns": [
+    "Chất liệu áo này là gì ạ",
+    "Áo này mặc có mát không",
+    "Áo này mặc có nóng không",
+    "đồ này nóng không",
+    "vải dày hay mỏng",
+    "chất liêu vải làm bằng gì"
+   ],
+   "responses": [
+    "Bạn hãy chọn xem chi tiết cho sản phẩm bạn chọn nhé. Nếu không có, gửi mã sản phẩm, Admin của chúng tôi sẽ hỗ trợ bạn nhé."
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Thanh toán hóa đơn",
+   "patterns": [
+    "Tôi muốn thanh toán hóa đơn",
+    "Mở cho tôi trang thanh toán",
+    "Làm sao để thanh toán hóa đơn",
+    "thanh toán cho tôi",
+    "thanh toán",
+    "thanh toán đơn hàng",
+    "tôi cần Thanh toán"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết và làm theo từng bước nhé. Để thanh toán, quý khách phải thêm sản phẩm vào giỏ hàng, https://chopper-shop-1.herokuapp.com/shipping"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Giỏ hàng",
+   "patterns": [
+    "Tôi muốn mở giỏ hàng",
+    "Giỏ hàng là gì",
+    "Làm sao để mua hàng",
+    "Mở cho tôi giỏ hàng",
+    "thanh toán",
+    "giỏ hàng"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Để thanh toán, quý khách phải thêm sản phẩm vào giỏ hàng, https://chopper-shop-1.herokuapp.com/cart"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Mở trang mua đầm",
+   "patterns": [
+    "Tôi muốn mua đầm",
+    "có đầm cho nữ không ạ",
+    "tôi mua đầm cho nữ",
+    "mua đầm"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Sản phẩm đầm cho nữ sẽ được hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Dress/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Mở trang mua nguyên bộ",
+   "patterns": [
+    "Tôi muốn mua nguyên bộ",
+    "tôi muốn theo đồ bộ",
+    "Phối cho tôi bộ đồ",
+    "Phối đồ theo phong cách"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Sản phẩm nguyên bộ theo phong cách sẽ được hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Set/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Mở trang mua chân váy",
+   "patterns": [
+    "Tôi muốn mua chân váy",
+    "có váy nữ không ạ",
+    "các loại chân váy"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Các sản phẩm chân váy cho nữ sẽ hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Skirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Mở trang áo thun",
+   "patterns": [
+    "Tôi muốn mua áo thun",
+    "có áo thun không",
+    "áo thun cho Nam",
+    "áo thun cho nữ",
+    "áo thun phông rộng",
+    "áo unisex"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Các sản phẩm áo thun sẽ hiển thị. tha hồ bạn lựa chọn nhé. https://chopper-shop-1.herokuapp.com/search/category/T-Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1",
+    "Bạn chọn vào mục Shop. bên trong đó có nhiều loại áo cho bạn lắm. hi hi. hoặc chọn liên kết cho dễ. https://chopper-shop-1.herokuapp.com/search/category/T-Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Mở trang áo sơ mi",
+   "patterns": [
+    "Tôi muốn mua áo sơ mi",
+    "áo sơ mi",
+    "áo sơ mi cho Nam",
+    "áo xơ my cho nữ",
+    "áo có nút phông rộng",
+    "áo sơ-mi"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Các sản phẩm áo sơ mi sẽ hiển thị. tha hồ bạn lựa chọn nhé. https://chopper-shop-1.herokuapp.com/search/category/Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1",
+    "Bạn chọn vào mục Shop. bên trong đó có nhiều loại áo cho bạn lắm. hi hi. hay chọn liên kết này cho dễ. https://chopper-shop-1.herokuapp.com/search/category/Shirt/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Mở trang mua quần",
+   "patterns": [
+    "Tôi muốn mua quần",
+    "quần",
+    "có bao nhiêu loại quần",
+    "Có quần jogger không",
+    "Có quần Jean không",
+    "Có quần đùi không"
+   ],
+   "responses": [
+    "Hãy bấm vào liên kết. Các sản phẩm quần sẽ hiển thị. https://chopper-shop-1.herokuapp.com/search/category/Pants/name/all/min/0/max/0/rating/0/order/newest/pageNumber/1"
+   ],
+   "context_set": ""
+  },
+  {
+   "tag": "Tên Giám Đốc",
+   "patterns": [
+    "Hồ Quốc Đạt là ai",
+    "Võ Thành Văn là ai"
+   ],
+   "responses": [
+    "Là người phát triển ra tôi đó, đáng yêu lắm."
+   ],
+   "context_set": ""
+  }
+ ]
+}
