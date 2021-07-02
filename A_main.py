@@ -11,6 +11,7 @@ from A_save_datamodel import savedata
 # from Open_Webbrowser import open_webbrowser
 import os
 from nltk.stem import WordNetLemmatizer
+from underthesea import word_tokenize
 # import matplotlib.pyplot as plt
 
 _sd = savedata()
@@ -98,8 +99,11 @@ class A_main():
     def bag_of_words(self, s, words):
         bag = [0 for _ in range(len(words))]
         ss = _sd.remove_stop_word(s.lower())
-        s_words = nltk.word_tokenize(ss)            #.lower() chuyển IN HOA thành in thường
+
+        s_words = word_tokenize(ss)
+        #s_words = nltk.word_tokenize(ss)            #.lower() chuyển IN HOA thành in thường
         #s_words = [stemmer.stem(word.lower()) for word in s_words]
+
         s_words = [lemmatizer.lemmatize(word) for word in s_words]
 
         for se in s_words:

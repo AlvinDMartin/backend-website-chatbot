@@ -2,6 +2,7 @@ import nltk
 from nltk.stem.lancaster import LancasterStemmer
 from nltk.stem import WordNetLemmatizer
 import pickle
+from underthesea import word_tokenize
 lemmatizer = WordNetLemmatizer()
 stemmer = LancasterStemmer()
 
@@ -34,7 +35,10 @@ class savedata:
         for intent in data["intents"]:
             for pattern in intent["patterns"]:
                 patt = self.remove_stop_word(pattern.lower())
-                wrds = nltk.word_tokenize(patt)          #tách từ chữ
+
+                wrds = word_tokenize(patt)
+                #wrds = nltk.word_tokenize(patt)          #tách từ chữ
+                
                 words.extend(wrds)
                 X_train.append(wrds)
                 Y_train.append(intent["tag"])

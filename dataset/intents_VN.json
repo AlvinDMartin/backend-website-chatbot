@@ -124,7 +124,7 @@
        "làm sao chọn kích thước"
       ],
       "responses": [
-       "Các kích thước đều đúng chuẩn ạ, mỗi kích thước sẽ chênh lệch nhau khoảng 5 xen ti mét. bạn có thể tham khảo kích thước áo thun ở đây. https://cutt.ly/MmascUi . Kích thước dành cho nữ ở đây. https://cutt.ly/zmhhQ2h"
+       "Các kích thước đều đúng chuẩn ạ, mỗi kích thước sẽ chênh lệch nhau khoảng 5 xen ti mét. bạn có thể tham khảo các kích thước ở đây. link 1 là kích thước áo thun, link 2 là kích thước cho nữ ạ. https://cutt.ly/MmascUi  https://cutt.ly/zmhhQ2h"
       ],
       "context_set": ""
      },
@@ -636,6 +636,16 @@
        "Nếu bạn là một người chơi hệ Thủy, thì mẫu áo này rất hợp đó. áo với phong cách hip hop đường phố cool ngầu. Ngại gì mà không mua. hi hi"
       ],
       "context_set": ""
-     }
+     },
+     {
+        "tag": "cám ơn",
+        "patterns": [
+         "Cảm ơn nha"
+        ],
+        "responses": [
+         "Dạ vâng ạ, Quý khách cứ hỏi tiếp đi ạ. Nếu không có, thì tôi vẫn ở đây, cứ hỏi mọi lúc nhé."
+        ],
+        "context_set": ""
+       }
     ]
    }
