@@ -44,6 +44,7 @@ class A_main():
         self.words = words
         self.labels = labels
         self.data = data
+        # print(len(words))
 
         if runmodel == True:
             print("Run MODEL")
@@ -98,14 +99,15 @@ class A_main():
 
     def bag_of_words(self, s, words):
         bag = [0 for _ in range(len(words))]
+        ignore_letter = ['?','!', '.', ',']
         ss = _sd.remove_stop_word(s.lower())
 
         s_words = word_tokenize(ss)
         #s_words = nltk.word_tokenize(ss)            #.lower() chuyển IN HOA thành in thường
         #s_words = [stemmer.stem(word.lower()) for word in s_words]
 
-        s_words = [lemmatizer.lemmatize(word) for word in s_words]
-
+        s_words = [lemmatizer.lemmatize(word) for word in s_words if word not in ignore_letter]
+        # print(s_words)
         for se in s_words:
             for i,w in enumerate(words):
                 if w == se:
@@ -125,8 +127,8 @@ class A_main():
             results_index = np.argmax(results)
 
             #Draw Test
-            # plt.xlabel('Vị trí tag')
-            # plt.ylabel('Phần trăm')
+            # plt.xlabel('location tag')
+            # plt.ylabel('percent')
             # plt.axis([0, len(results), -2, 102])
             # plt.title('Predict')
             # plt.legend()
